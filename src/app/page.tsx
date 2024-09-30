@@ -2,47 +2,83 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <header className="row-start-1 grid grid-rows-[auto_auto] gap-4 w-2/3 items-center">
+        <div className="items-center sm:items-start py-8">
+          <h1 className="text-2xl sm:text-3xl font-bold text-center">Adam Tidball</h1>
+          <p className="text-sm text-center">
+            Software Engineering Portfolio
+          </p>
+        </div>
+        <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 items-center">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full border border-solid border-black/[.08] hover:bg-black/[.08]"
+            href="#AboutMe"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            About Me
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            className="px-4 py-2 rounded-full border border-solid border-black/[.08] hover:bg-black/[.08]"
+            href="#Projects"
           >
-            Read our docs
+            Projects
+          </a>
+          <a
+            className="px-4 py-2 rounded-full border border-solid border-black/[.08] hover:bg-black/[.08]"
+            href="#Footer"
+          >
+            Contact Info
           </a>
         </div>
+      </header>
+
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        <section id="AboutMe" className="flex flex-col gap-4">
+          <h2 className="text-lg font-bold">About Me</h2>
+          <p>
+            I am a software engineer with a passion for creating and maintaining
+            software that is both efficient and user-friendly. I have a
+            background in full-stack development, with experience in both
+            front-end and back-end technologies. I am always looking for new
+            challenges and opportunities to learn and grow as a developer.
+          </p>
+        </section>
+        <section id="Projects" className="flex flex-col gap-4">
+          <h2 className="text-lg font-bold">Projects</h2>
+          <ul className="flex flex-col gap-4">
+            <li>
+              <h3 className="text-md font-bold">Project 1</h3>
+              <p>
+                Description of project 1
+              </p>
+            </li>
+            <li>
+              <h3 className="text-md font-bold mt-32">Project 2</h3>
+              <p>
+                Description of project 2
+              </p>
+            </li>
+            <li>
+              <h3 className="text-md font-bold mt-32">Project 3</h3>
+              <p className="mb-32">
+                Description of project 3
+              </p>
+            </li>
+          </ul>
+        </section>
+
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
+
+      <footer id="Footer" className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="col-span-1 sm:col-span-2 flex flex-col gap-4 items-center">
+          <h2 className="text-lg font-bold">Contact Info</h2>
+          <p>
+            Feel free to reach out to me via email or connect with me on GitHub
+            or LinkedIn.
+          </p>
+        </div>
+        <div className="col-start-1 sm:col-start-1 sm:col-span-2 flex gap-8 flex-wrap items-center justify-center mt-8">
+          <a
           className="flex items-center gap-2  "
           target="_blank"
           rel="noopener noreferrer"
@@ -86,6 +122,7 @@ export default function Home() {
           />
           LinkedIn →
         </a>
+        </div>
       </footer>
     </div>
   );
