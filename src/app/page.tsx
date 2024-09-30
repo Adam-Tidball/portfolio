@@ -129,7 +129,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="/portfolio/icons/211904_social_github_icon.png"
+            src="/icons/211904_social_github_icon.png"
             alt="GitHub icon"
             width={16}
             height={16} 
@@ -144,7 +144,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="/portfolio/icons/104493_linkedin_icon.png"
+            src="/icons/104493_linkedin_icon.png"
             alt="LinkedIn icon"
             width={16}
             height={16}
