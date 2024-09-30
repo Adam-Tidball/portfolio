@@ -85,7 +85,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="portfolio/public/icons/134146_mail_email_icon.png"
+            src="/portfolio/icons/134146_mail_email_icon.png"
             alt="Email icon"
             width={16}
             height={16}
@@ -100,7 +100,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="portfolio/public/icons/211904_social_github_icon.png"
+            src="/portfolio/icons/211904_social_github_icon.png"
             alt="GitHub icon"
             width={16}
             height={16} 
@@ -115,7 +115,7 @@ export default function Home() {
         >
           <Image
             aria-hidden
-            src="public/icons/104493_linkedin_icon.png"
+            src="/portfolio/icons/104493_linkedin_icon.png"
             alt="LinkedIn icon"
             width={16}
             height={16}
