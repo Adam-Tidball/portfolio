@@ -32,7 +32,7 @@ export default function Home() {
       <main className="flex flex-col gap-8 row-start-2 w-full lg:w-2/3">
         <div className="flex flex-col gap-4 items-center">
           <p className="text-4xl sm:text-5xl font-bold text-center">
-            Hello, I'm Adam!
+            Hello, I&apos;m Adam!
           </p>
           <p className="text-lg sm:text-xl text-center mb-2 sm:mb-4">
             Welcome to my software portfolio.
