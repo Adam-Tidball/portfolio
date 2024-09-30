@@ -18,7 +18,7 @@ export default function Home() {
             >
             <Image
               aria-hidden
-              src="/icons/134146_mail_email_icon.png"
+              src="/portfolio/icons/134146_mail_email_icon.png"
               alt="Email: "
               width={16}
               height={16}
