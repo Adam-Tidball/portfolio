@@ -19,7 +19,7 @@ export default function Home() {
             <div className="relative w-4 h-4">
             <Image
               aria-hidden
-              src="/icons/134146_mail_email_icon.png"
+              src="/portfolio/icons/134146_mail_email_icon.png"
               alt="Email: "
               fill
             />
@@ -53,7 +53,7 @@ export default function Home() {
             </a>
             <a
               className="px-4 py-2 rounded-full border border-solid border-black/[.08] hover:bg-black/[.08]"
-              href="resumes/Adam Tidball - 1pg Resume.pdf"
+              href="/portfolio/resumes/Adam Tidball - 1pg Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -102,7 +102,7 @@ export default function Home() {
                   <div className="relative w-4 h-4">
                   <Image
                     aria-hidden
-                    src="/icons/211904_social_github_icon.png"
+                    src="/portfolio/icons/211904_social_github_icon.png"
                     alt="GitHub icon"
                     fill 
                   />
@@ -116,7 +116,7 @@ export default function Home() {
                     <div className="w-full xl:w-3/4">
                     <p className="text-center italic mb-2">Recommender Logic Diagram:</p>
                     <Image
-                      src="/marketplace/recommender_flow_v2.JPG"
+                      src="/portfolio/marketplace/recommender_flow_v2.JPG"
                       alt="recommender flow diagram"
                       layout="responsive"
                       width={800}
@@ -131,7 +131,7 @@ export default function Home() {
                     <p className="text-center italic mb-2">Recommendation UI:</p>
                     <div className="relative mx-auto max-w-full h-[200px] w-[250px] sm:h-[250px] sm:w-[500px] lg:h-[400px] lg:w-[800px]">
                     <Image
-                      src="/marketplace/UI_rec3.PNG"
+                      src="/portfolio/marketplace/UI_rec3.PNG"
                       alt="recommender UI"
                       fill
                       className="border border-solid border-black/[.08] rounded-lg"
@@ -162,7 +162,7 @@ export default function Home() {
                   <div className="relative w-4 h-4">
                   <Image
                     aria-hidden
-                    src="/icons/8666725_globe_icon.png"
+                    src="/portfolio/icons/8666725_globe_icon.png"
                     alt="Globe icon"
                     fill 
                   />
@@ -177,7 +177,7 @@ export default function Home() {
                     <p className="text-center italic mb-2">NFT Art Components:</p>
                     <div className="relative mx-auto max-w-full h-[200px] w-[200px] sm:h-[300px] sm:w-[300px] lg:h-[400px] lg:w-[400px]">
                     <Image
-                      src="/NFTs/NFT_Bears_Breakdown.jpeg"
+                      src="/portfolio/NFTs/NFT_Bears_Breakdown.jpeg"
                       alt="NFT art components"
                       fill
                       className="border border-solid border-black/[.08] rounded-lg"
@@ -191,7 +191,7 @@ export default function Home() {
                     <p className="text-center italic mb-2">Example Bear Image:</p>
                     <div className="relative mx-auto max-w-full h-[200px] w-[200px] sm:h-[300px] sm:w-[300px] lg:h-[400px] lg:w-[400px]">    
                     <Image
-                      src="/NFTs/4983.png"
+                      src="/portfolio/NFTs/4983.png"
                       alt="Example Bear Image"
                       fill
                       className="border border-solid border-black/[.08] rounded-lg"
@@ -232,7 +232,7 @@ export default function Home() {
           <div className="relative w-4 h-4">
           <Image
             aria-hidden
-            src="/icons/134146_mail_email_icon.png"
+            src="/portfolio/icons/134146_mail_email_icon.png"
             alt="Email: "
             fill
           />
@@ -248,7 +248,7 @@ export default function Home() {
           <div className="relative w-4 h-4">
           <Image
             aria-hidden
-            src="/icons/211904_social_github_icon.png"
+            src="/portfolio/icons/211904_social_github_icon.png"
             alt="GitHub icon"
             fill
           />
@@ -264,7 +264,7 @@ export default function Home() {
           <div className="relative w-4 h-4">
           <Image
             aria-hidden
-            src="/icons/104493_linkedin_icon.png"
+            src="/portfolio/icons/104493_linkedin_icon.png"
             alt="LinkedIn icon"
             fill
           />
