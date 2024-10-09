@@ -16,13 +16,14 @@ export default function Home() {
               className="text-sm sm:text-base text-right flex items-center gap-2 hover:underline hover:underline-offset-4"
               href="mailto:abtidball@gmail.com"
             >
+            <div className="relative w-4 h-4">
             <Image
               aria-hidden
               src="/icons/134146_mail_email_icon.png"
               alt="Email: "
-              width={16}
-              height={16}
+              fill
             />
+            </div>
             abtidball@gmail.com
             </a>
           </div>
@@ -49,6 +50,14 @@ export default function Home() {
               href="#Projects"
             >
               Projects
+            </a>
+            <a
+              className="px-4 py-2 rounded-full border border-solid border-black/[.08] hover:bg-black/[.08]"
+              href="resumes/Adam Tidball - 1pg Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Resume
             </a>
             <a
               className="px-4 py-2 rounded-full border border-solid border-black/[.08] hover:bg-black/[.08]"
