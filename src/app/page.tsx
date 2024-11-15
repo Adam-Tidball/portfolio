@@ -54,7 +54,7 @@ export default function Home() {
             <a
               className="px-4 py-2 rounded-full border border-solid border-black/[.08] hover:bg-black/[.08]"
 
-              href="/portfolio/resumes/Adam B. Tidball - 1 pg resume - Website.pdf"
+              href="/portfolio/resumes/Adam B. Tidball - Resume - Website.pdf"
 
               target="_blank"
               rel="noopener noreferrer"
