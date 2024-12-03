@@ -28,6 +28,13 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+
+  /**
+   * Expose the runtime configuration to allow dynamic access in components.
+   */
+  publicRuntimeConfig: {
+    basePath: process.env.NODE_ENV === "development" ? "" : "/portfolio",
+  },
 };
 
 export default nextConfig;
