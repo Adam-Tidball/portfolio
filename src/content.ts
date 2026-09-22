@@ -28,8 +28,13 @@ export const experience: Job[] = [
   {
     role: "Data Engineer",
     company: "OpenSport",
-    // TODO(Adam): add start date, e.g. "Sep 2024 – Present", and 2–3 bullet points.
-    points: [],
+    period: "Sep 2026 – Present",
+    points: [
+      "Build and maintain the data pipelines that move sports data through OpenSport's platform, with validation, cleaning and transformation steps to keep it reliable.",
+      "Pull in and share data from multiple sources through APIs, and help tune database performance and storage.",
+      "Point person for front-end and back-end fixes on the PlayWize app: I find and prioritize issues, then bring in the right people.",
+      "Own Jira and Confluence for the team, setting up smarter triage, prioritization and PR review workflows.",
+    ],
   },
   {
     role: "Technology Department Co-op",
@@ -73,7 +78,7 @@ export const education = {
 export const skills: { group: string; items: string[] }[] = [
   { group: "Languages", items: ["Python", "SQL", "C", "C++", "R", "JavaScript"] },
   { group: "Data & ML", items: ["PostgreSQL", "PyTorch", "Vector embeddings"] },
-  { group: "Tools", items: ["Docker", "FastAPI", "Next.js", "Git"] },
+  { group: "Tools", items: ["Docker", "FastAPI", "Next.js", "Git", "Jira", "Confluence"] },
 ];
 
 export type ProjectImage = { src: string; alt: string; caption: string; width: number; height: number };
