@@ -28,7 +28,7 @@ export const experience: Job[] = [
   {
     role: "Data Engineer",
     company: "OpenSport",
-    period: "Jan 2025 – Present",
+    period: "Dec 2024 – Present",
     points: [
       "Build and maintain the data pipelines that move sports data through OpenSport's platform, with validation, cleaning and transformation steps to keep it reliable.",
       "Pull in and share data from multiple sources through APIs, and help tune database performance and storage.",
