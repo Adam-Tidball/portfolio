@@ -13,9 +13,27 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+const siteUrl = "https://adam-tidball.github.io/portfolio/";
+const title = "Adam Tidball - Portfolio";
+const description = "Adam Tidball's Software Engineering Portfolio";
+
 export const metadata: Metadata = {
-  title: "Adam Tidball - Portfolio",
-  description: "Adam Tidball's Software Engineering Portfolio",
+  title,
+  description,
+  alternates: { canonical: siteUrl },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    title,
+    description,
+    siteName: title,
+    locale: "en_CA",
+  },
+  twitter: {
+    card: "summary",
+    title,
+    description,
+  },
 };
 
 export default function RootLayout({
