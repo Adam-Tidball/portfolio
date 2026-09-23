@@ -1,6 +1,7 @@
 import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
-import { JobItem, ProjectCard, Section, Tag, asset } from "@/components/ui";
-import { about, education, experience, profile, projects, skills } from "@/content";
+import { EntryHeader, ExternalLink, JobItem, ProjectCard, Section, Tag, hoverAccent, pill } from "@/components/ui";
+import { about, education, experience, mailto, profile, projects, skills } from "@/content";
+import { asset } from "@/lib/asset";
 
 const nav = [
   { href: "#about", label: "About" },
@@ -10,26 +11,22 @@ const nav = [
 ];
 
 const iconLinks = [
-  { href: `mailto:${profile.email}`, label: "Email", Icon: MailIcon },
-  { href: profile.github, label: "GitHub", Icon: GitHubIcon },
-  { href: profile.linkedin, label: "LinkedIn", Icon: LinkedInIcon },
+  { href: mailto, label: "Email", Icon: MailIcon, external: false },
+  { href: profile.github, label: "GitHub", Icon: GitHubIcon, external: true },
+  { href: profile.linkedin, label: "LinkedIn", Icon: LinkedInIcon, external: true },
 ];
 
 function ContactLinks({ size = "w-5 h-5" }: { size?: string }) {
   return (
     <>
-      {iconLinks.map(({ href, label, Icon }) => (
-        <a
-          key={label}
-          href={href}
-          aria-label={label}
-          title={label}
-          {...(href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
-          className="text-muted hover:text-accent transition-colors"
-        >
-          <Icon className={size} />
-        </a>
-      ))}
+      {iconLinks.map(({ href, label, Icon, external }) => {
+        const Link = external ? ExternalLink : "a";
+        return (
+          <Link key={label} href={href} aria-label={label} title={label} className={`text-muted ${hoverAccent}`}>
+            <Icon className={size} />
+          </Link>
+        );
+      })}
     </>
   );
 }
@@ -49,7 +46,7 @@ export default function Home() {
             <ul className="flex justify-between gap-5 text-sm text-muted sm:justify-end">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <a href={item.href} className="hover:text-accent transition-colors">
+                  <a href={item.href} className={hoverAccent}>
                     {item.label}
                   </a>
                 </li>
@@ -67,19 +64,14 @@ export default function Home() {
           <p className="mt-4 max-w-xl text-lg text-muted">{profile.intro}</p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              href={`mailto:${profile.email}`}
+              href={mailto}
               className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 font-medium text-bg hover:opacity-90 transition-opacity"
             >
               <MailIcon /> Get in touch
             </a>
-            <a
-              href={asset(profile.resume)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-line px-5 py-2.5 font-medium hover:border-accent hover:text-accent transition-colors"
-            >
+            <ExternalLink href={asset(profile.resume)} className={`px-5 py-2.5 font-medium ${pill}`}>
               Resume
-            </a>
+            </ExternalLink>
             <div className="ml-2 hidden items-center gap-4 sm:flex">
               <ContactLinks />
             </div>
@@ -113,12 +105,7 @@ export default function Home() {
             ))}
           </ol>
           <div className="mt-10 rounded-2xl border border-line bg-surface p-6">
-            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-x-4">
-              <h3 className="font-semibold">
-                {education.degree} <span className="text-muted font-normal">· {education.school}</span>
-              </h3>
-              <p className="text-sm text-muted shrink-0">{education.period}</p>
-            </div>
+            <EntryHeader title={education.degree} org={education.school} period={education.period} />
             <p className="mt-2 text-muted">{education.note}</p>
           </div>
         </Section>
@@ -134,7 +121,7 @@ export default function Home() {
         <Section id="contact" title="Contact">
           <p className="text-2xl sm:text-3xl font-semibold tracking-tight">Want to chat? My inbox is open.</p>
           <a
-            href={`mailto:${profile.email}`}
+            href={mailto}
             className="mt-4 inline-block text-lg text-accent underline-offset-4 hover:underline"
           >
             {profile.email}
@@ -146,7 +133,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-line py-8 text-center text-sm text-muted">
-        © {new Date().getFullYear()} {profile.name}
+        © {profile.name}
       </footer>
     </>
   );

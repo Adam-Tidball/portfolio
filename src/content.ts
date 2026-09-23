@@ -11,6 +11,8 @@ export const profile = {
   resume: "/resumes/adam-tidball-resume.pdf",
 };
 
+export const mailto = `mailto:${profile.email}`;
+
 export const about = [
   "I got into software for the problem-solving, and data engineering has kept that going. Before OpenSport, my co-ops took me through QA at a mining tech company, IT at a pension fund investment firm, and running a project of my own.",
   "Away from the keyboard you'll find me playing hockey, golf or chess.",
@@ -83,7 +85,15 @@ export const skills: { group: string; items: string[] }[] = [
   { group: "Collaboration", items: ["Jira", "Confluence", "GitHub", "Slack"] },
 ];
 
-export type ProjectImage = { src: string; alt: string; caption: string; width: number; height: number };
+export type ProjectImage = {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+  // Span the full card width instead of half. Use for diagrams and wide screenshots.
+  wide?: boolean;
+};
 
 export type Project = {
   title: string;
@@ -114,6 +124,7 @@ export const projects: Project[] = [
         caption: "How a user's taste vector is built",
         width: 1450,
         height: 607,
+        wide: true,
       },
       {
         src: "/marketplace/architecture_diagram.PNG",
@@ -121,6 +132,7 @@ export const projects: Project[] = [
         caption: "System architecture",
         width: 909,
         height: 875,
+        wide: true,
       },
       {
         src: "/marketplace/UI_rec3.PNG",
@@ -128,6 +140,7 @@ export const projects: Project[] = [
         caption: "Recommendations in the app",
         width: 1920,
         height: 1026,
+        wide: true,
       },
     ],
   },

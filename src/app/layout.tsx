@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { profile } from "@/content";
 import "./globals.css";
 
 const geistSans = localFont({
@@ -9,8 +10,8 @@ const geistSans = localFont({
 });
 
 const siteUrl = "https://adam-tidball.github.io/portfolio/";
-const title = "Adam Tidball";
-const description = "Data engineer at OpenSport and UVic Software Engineering grad. Experience, projects and contact info.";
+const title = profile.name;
+const description = profile.intro;
 
 export const metadata: Metadata = {
   title,

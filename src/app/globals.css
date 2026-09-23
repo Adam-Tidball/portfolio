@@ -28,9 +28,16 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Tells the browser to draw its own UI (scrollbars, controls) in the matching theme. */
+  color-scheme: light dark;
   /* Keep section headings clear of the sticky header when jumping to an anchor. */
   scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
