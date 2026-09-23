@@ -1,242 +1,140 @@
-import Image from "next/image";
-import { GitHubIcon, GlobeIcon, LinkedInIcon, MailIcon } from "./icons";
-import getConfig from "next/config";
+import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/icons";
+import { EntryHeader, ExternalLink, JobItem, ProjectCard, Section, Tag, hoverAccent, pill } from "@/components/ui";
+import { about, education, experience, mailto, profile, projects, skills } from "@/content";
+import { asset } from "@/lib/asset";
 
-// Retrieve the basePath dynamically
-const { publicRuntimeConfig } = getConfig();
-const { basePath } = publicRuntimeConfig;
+const nav = [
+  { href: "#about", label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
+];
+
+const iconLinks = [
+  { href: mailto, label: "Email", Icon: MailIcon, external: false },
+  { href: profile.github, label: "GitHub", Icon: GitHubIcon, external: true },
+  { href: profile.linkedin, label: "LinkedIn", Icon: LinkedInIcon, external: true },
+];
+
+function ContactLinks({ size = "w-5 h-5" }: { size?: string }) {
+  return (
+    <>
+      {iconLinks.map(({ href, label, Icon, external }) => {
+        const Link = external ? ExternalLink : "a";
+        return (
+          <Link key={label} href={href} aria-label={label} title={label} className={`text-muted ${hoverAccent}`}>
+            <Icon className={size} />
+          </Link>
+        );
+      })}
+    </>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] overflow-x-hidden">
-      <header className="row-start-1 w-full lg:w-4/5 ">
-        <div className="flex flex-col sm:flex-row items-center justify-between w-full">
-          <div className="flex flex-col items-center sm:items-start">
-            <h1 className="text-2xl sm:text-3xl font-bold">Adam Tidball</h1>
-            <p className="text-sm mb-4 sm:mb-2">
-              Software Engineering Portfolio
-            </p>
+    <>
+      <header className="sticky top-0 z-10 border-b border-line bg-bg/80 backdrop-blur">
+        <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
+          <a href="#top" className="font-semibold tracking-tight">
+            {profile.name}
+          </a>
+          <div className="flex items-center gap-4 sm:hidden">
+            <ContactLinks />
           </div>
-          <div className="flex items-center">
-            <a
-              className="text-sm sm:text-base text-right flex items-center gap-2 hover:underline hover:underline-offset-4"
-              href="mailto:abtidball@gmail.com"
-            >
-            <MailIcon />
-            abtidball@gmail.com
-            </a>
-          </div>
+          <nav aria-label="Sections" className="w-full sm:w-auto">
+            <ul className="flex justify-between gap-5 text-sm text-muted sm:justify-end">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} className={hoverAccent}>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </header>
 
-      <main className="flex flex-col gap-8 row-start-2 w-full lg:w-2/3 ">
-        <div className="flex flex-col gap-4 items-center">
-          <p className="text-4xl sm:text-5xl font-bold text-center">
-            Hello, I&apos;m Adam!
-          </p>
-          <p className="text-lg sm:text-xl text-center mb-2 sm:mb-4">
-            Welcome to my software portfolio.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 items-center">
+      <main id="top" className="mx-auto max-w-3xl px-4 sm:px-6">
+        <div className="py-16 sm:py-24">
+          <p className="font-medium text-accent">Hi, I&apos;m</p>
+          <h1 className="mt-1 text-4xl sm:text-6xl font-bold tracking-tight">{profile.name}</h1>
+          <p className="mt-3 text-xl sm:text-2xl font-medium">{profile.headline}</p>
+          <p className="mt-4 max-w-xl text-lg text-muted">{profile.intro}</p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
-              className="px-4 py-2 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] hover:bg-black/[.08] dark:hover:bg-white/[.1]"
-              href="#AboutMe"
+              href={mailto}
+              className="inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 font-medium text-bg hover:opacity-90 transition-opacity"
             >
-              About Me
+              <MailIcon /> Get in touch
             </a>
-            <a
-              className="px-4 py-2 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] hover:bg-black/[.08] dark:hover:bg-white/[.1]"
-              href="#Projects"
-            >
-              Projects
-            </a>
-            <a
-              className="px-4 py-2 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] hover:bg-black/[.08] dark:hover:bg-white/[.1]"
-
-              href={`${basePath}/resumes/adam-tidball-resume.pdf`} // This is the path to the resume file
-              
-
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <ExternalLink href={asset(profile.resume)} className={`px-5 py-2.5 font-medium ${pill}`}>
               Resume
-            </a>
-            <a
-              className="px-4 py-2 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] hover:bg-black/[.08] dark:hover:bg-white/[.1]"
-              href="#Footer"
-            >
-              Contact Info
-            </a>
+            </ExternalLink>
+            <div className="ml-2 hidden items-center gap-4 sm:flex">
+              <ContactLinks />
+            </div>
           </div>
         </div>
 
-        <section id="AboutMe" className="flex flex-col gap-4 mt-8">
-          <h2 className="text-lg font-bold">About Me</h2>
-          <p>
-            I graduated with a degree in Software Engineering from the University of Victoria, specializing in data mining and analysis, artificial intelligence, and machine learning. I have a passion for problem-solving and leveraging the power of technology to create innovative solutions. I am constantly inspired by the impact software can have in transforming industries and improving lives.
-            < br />
-            < br />
-            Throughout my academic journey, I have developed a strong foundation in various programming languages and software engineering principles. In addition to my education, I’ve had the opportunity to gain practical experience through 16 months of co-op work including as a Quality Assurance Engineer, IT support, and as an entrepreneur creating an NFT project. These experiences have provided me with hands-on exposure to real-world challenges and helped me develop a versatile skill set.
-            < br />
-            < br />
-            Outside of tech, I’m passionate about hockey, golf, and chess—each offering its own unique challenges to tackle. I thrive on solving problems, whether they’re on the ice, on the course, or in the software world, and I’m always ready for the next big challenge.
-          </p>
-          
-        </section>
-        <section id="Projects" className="flex flex-col gap-4">
-          <h2 className="text-lg font-bold">Projects</h2>
-          <ul className="flex flex-col gap-4">
-            <li>
-              <h3 className="text-md font-bold mb-2">Marketplace Application</h3>
-              <p>
-
-                I worked as a member of a 12 person development team to create a marketplace application for the University of Victoria. The application was designed using a microservice architecture, using RESTful APIs for communication between the services and being scaled and deployed utilizing Docker containers. My primary role was to develop a recommendation system that would suggest items to users based on their previous interactions with the application.                <br />
-                <br />
-                The recommendation system was built using Python and the PyTorch library. The system created vector representations of item descriptions in the system and then mapped every user into that vector space based on their interactions. Recommendations were generated by finding the nearest neighbors to the user in the vector space. The system was able to generate recommendations for users in real time.
-              </p>
-
-              <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 items-center mt-12 mb-12">
-                <a
-                  className="flex items-center gap-2 px-4 py-2 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] hover:bg-black/[.08] dark:hover:bg-white/[.1]"
-                  href="https://github.com/matt-lebl/uvic-marketplace"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GitHubIcon />
-                  Project Repository
-                </a>
+        <Section id="about" title="About">
+          <div className="space-y-4 text-lg">
+            {about.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            {skills.map((group) => (
+              <div key={group.group}>
+                <h3 className="mb-3 text-sm font-semibold">{group.group}</h3>
+                <ul className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <Tag key={item}>{item}</Tag>
+                  ))}
+                </ul>
               </div>
+            ))}
+          </div>
+        </Section>
 
-                <div className="border border-solid border-black/[.25] dark:border-white/[.25] rounded-lg p-4">
-                  <div className="flex justify-center mt-4">
-                    <div className="w-full xl:w-3/4">
-                    <p className="text-center italic mb-2">Recommender Logic Diagram:</p>
-                    <Image
+        <Section id="experience" title="Experience">
+          <ol className="space-y-8 border-l border-line">
+            {experience.map((job) => (
+              <JobItem key={`${job.company}-${job.role}`} job={job} />
+            ))}
+          </ol>
+          <div className="mt-10 rounded-2xl border border-line bg-surface p-6">
+            <EntryHeader title={education.degree} org={education.school} period={education.period} />
+            <p className="mt-2 text-muted">{education.note}</p>
+          </div>
+        </Section>
 
-                      src={`${basePath}/marketplace/recommender_flow_v2.JPG`}
-                      alt="Diagram of how user interactions are combined into a user taste vector"
-                      width={1450}
-                      height={607}
-                      className="w-full h-auto border border-solid border-black/[.08] dark:border-white/[.1] rounded-lg"
+        <Section id="projects" title="Projects">
+          <div className="space-y-8">
+            {projects.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </div>
+        </Section>
 
-                    />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-center mt-8">
-                    <div className="w-full xl:w-3/4">
-                    <p className="text-center italic mb-2">Recommendation UI:</p>
-                    <Image
-                      src={`${basePath}/marketplace/UI_rec3.PNG`}
-                      alt="Marketplace page showing a list of recommended listings"
-                      width={1920}
-                      height={1026}
-                      className="w-full h-auto border border-solid border-black/[.08] dark:border-white/[.1] rounded-lg"
-                    />
-                    </div>
-                  </div>
-                </div>
-
-
-            </li>
-            <li>
-              <h3 className="text-md font-bold mt-16 mb-2">NFTs For Charity</h3>
-              <p>
-              I started an NFT project aimed at raising funds for charity. I created 5,000 unique bear-themed digital artworks from individual art components I commissioned from a local artist. I regularly consulted with a board of advisors—friends with expertise in business, art, and technology—to refine my ideas and approach. 
-              <br />
-              <br />
-              Throughout this project, I gained an understanding of blockchain technology and the NFT creation process. I also learned a lot of non-software skills such as skills about business and entrepreneurship. While the digital assets have been completed, they are yet to be minted on a blockchain. I look forward to revisiting this project in the future, with plans to mint the NFTs once the timing and resources align.
-              </p>
-
-              <div className="flex flex-col sm:flex-row justify-center gap-6 sm:gap-12 items-center mt-12 mb-12">
-                <a
-                  className="flex items-center gap-2 px-4 py-2 rounded-full border border-solid border-black/[.08] dark:border-white/[.145] hover:bg-black/[.08] dark:hover:bg-white/[.1]"
-                  href="https://charitynfts.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <GlobeIcon />
-                  Project Website
-                </a>
-              </div>
-
-              <div className="border border-solid border-black/[.25] dark:border-white/[.25] rounded-lg p-4">
-                  <div className="flex justify-center mt-4">
-                    <div className="w-full xl:w-1/2">
-                    <p className="text-center italic mb-2">NFT Art Components:</p>
-                    <Image
-                      src={`${basePath}/NFTs/NFT_Bears_Breakdown.jpeg`}
-                      alt="Grid of the layered art components used to generate the bears"
-                      width={594}
-                      height={640}
-                      className="mx-auto w-full max-w-[200px] sm:max-w-[300px] lg:max-w-[400px] h-auto border border-solid border-black/[.08] dark:border-white/[.1] rounded-lg"
-                    />
-                    </div>
-                  </div>
-
-                  <div className="flex justify-center mt-8">
-                    <div className="w-full sm:w-3/4 lg:w-1/2">
-                    <p className="text-center italic mb-2">Example Bear Image:</p>
-                    <Image
-                      src={`${basePath}/NFTs/4983.webp`}
-                      alt="Example generated bear"
-                      width={800}
-                      height={800}
-                      className="mx-auto w-full max-w-[200px] sm:max-w-[300px] lg:max-w-[400px] h-auto border border-solid border-black/[.08] dark:border-white/[.1] rounded-lg"
-                    />
-                    </div>
-                  </div>
-                </div>
-
-
-            </li>
-            {/* <li>
-              <h3 className="text-md font-bold mt-32">Project 3</h3>
-              <p className="mb-32">
-                Description of project 3
-              </p>
-            </li> */}
-          </ul>
-        </section>
-
+        <Section id="contact" title="Contact">
+          <p className="text-2xl sm:text-3xl font-semibold tracking-tight">Want to chat? My inbox is open.</p>
+          <a
+            href={mailto}
+            className="mt-4 inline-block text-lg text-accent underline-offset-4 hover:underline"
+          >
+            {profile.email}
+          </a>
+          <div className="mt-6 flex items-center gap-5">
+            <ContactLinks size="w-6 h-6" />
+          </div>
+        </Section>
       </main>
 
-      <footer id="Footer" className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="col-span-1 sm:col-span-2 flex flex-col gap-4 items-center">
-          <h2 className="text-lg font-bold">Contact Info</h2>
-          <p>
-            Feel free to reach out to me via email or connect with me on GitHub
-            or LinkedIn.
-          </p>
-        </div>
-        <div className="col-start-1 sm:col-start-1 sm:col-span-2 flex gap-8 flex-wrap items-center justify-center mt-8">
-          <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="mailto:abtidball@gmail.com"
-        >
-          <MailIcon />
-          abtidball@gmail.com
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://github.com/Adam-Tidball"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <GitHubIcon />
-          GitHub →
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://www.linkedin.com/in/adam-tidball-146117202/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <LinkedInIcon />
-          LinkedIn →
-        </a>
-        </div>
+      <footer className="border-t border-line py-8 text-center text-sm text-muted">
+        © {profile.name}
       </footer>
-    </div>
+    </>
   );
 }
