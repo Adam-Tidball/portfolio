@@ -92,7 +92,7 @@ export default function Home() {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
-          <div className="mt-8 grid gap-6 sm:grid-cols-3">
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {skills.map((group) => (
               <div key={group.group}>
                 <h3 className="mb-3 text-sm font-semibold">{group.group}</h3>

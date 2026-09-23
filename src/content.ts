@@ -4,7 +4,7 @@ export const profile = {
   name: "Adam Tidball",
   headline: "Data Engineer at OpenSport",
   intro:
-    "Software Engineering grad from the University of Victoria, now working with data at OpenSport. I studied data mining and machine learning, and I enjoy building things that turn data into something useful.",
+    "I build sports data pipelines and help keep a full-stack app running smoothly at OpenSport. Software Engineering grad from the University of Victoria, with a background in data mining and machine learning.",
   email: "abtidball@gmail.com",
   github: "https://github.com/Adam-Tidball",
   linkedin: "https://www.linkedin.com/in/adam-tidball-146117202/",
@@ -28,11 +28,12 @@ export const experience: Job[] = [
   {
     role: "Data Engineer",
     company: "OpenSport",
+    location: "Vancouver, BC (Remote)",
     period: "Dec 2024 – Present",
     points: [
-      "Build and maintain the data pipelines that move sports data through OpenSport's platform, with validation, cleaning and transformation steps to keep it reliable.",
-      "Pull in and share data from multiple sources through APIs, and help tune database performance and storage.",
-      "Point person for front-end and back-end fixes on the PlayWize app: I find and prioritize issues, then bring in the right people.",
+      "Build and maintain data pipelines that bring sports data from external APIs into Cosmos DB, using TypeScript with validation, cleaning and transformation steps to keep it reliable.",
+      "Helped migrate the full-stack PlayWize app from Angular to React, testing API integrations and building UI from Figma designs.",
+      "Point person for front-end and back-end fixes: I find and prioritize issues, then bring in the right people.",
       "Own Jira and Confluence for the team, setting up smarter triage, prioritization and PR review workflows.",
     ],
   },
@@ -42,8 +43,8 @@ export const experience: Job[] = [
     location: "Victoria, BC",
     period: "Jan 2023 – Apr 2023",
     points: [
-      "Solved user technology and configuration issues alongside the service desk team.",
-      "Worked with third-party vendors to resolve escalated problems.",
+      "Helped users with technology problems and technical configuration, including laptop reimaging.",
+      "Worked with the service desk team and third-party vendors using ServiceNow.",
     ],
   },
   {
@@ -52,8 +53,8 @@ export const experience: Job[] = [
     location: "Vancouver, BC",
     period: "May 2022 – Aug 2022",
     points: [
-      "Planned and ran a charity NFT project with a board of advisors, using backward planning and Gantt charts.",
-      "Designed and deployed the project website with HTML, CSS and JavaScript.",
+      "Generated 5,000 unique NFT images by layering art components with weighted trait rarities.",
+      "Led project planning with a board of advisors using backward planning and Gantt charts.",
     ],
   },
   {
@@ -62,7 +63,7 @@ export const experience: Job[] = [
     location: "Richmond, BC",
     period: "May 2021 – Dec 2021",
     points: [
-      "Tested the fleet management system manually and wrote automated test cases.",
+      "Tested the fleet management system manually and wrote automated test cases with Robot Framework.",
       "Wrote and maintained the Wenco Message Bus documentation for internal and external system messages.",
     ],
   },
@@ -76,9 +77,10 @@ export const education = {
 };
 
 export const skills: { group: string; items: string[] }[] = [
-  { group: "Languages", items: ["Python", "SQL", "C", "C++", "R", "JavaScript"] },
-  { group: "Data & ML", items: ["PostgreSQL", "PyTorch", "Vector embeddings"] },
-  { group: "Tools", items: ["Docker", "FastAPI", "Next.js", "Git", "Jira", "Confluence"] },
+  { group: "Languages", items: ["Python", "TypeScript", "JavaScript", "SQL", "C", "C++"] },
+  { group: "Frameworks & tools", items: ["React", "Angular", "Next.js", "FastAPI", "PyTorch", "Docker", "Kubernetes", "Git"] },
+  { group: "Data", items: ["Cosmos DB", "PostgreSQL", "API ingestion", "Data validation"] },
+  { group: "Collaboration", items: ["Jira", "Confluence", "GitHub", "Slack"] },
 ];
 
 export type ProjectImage = { src: string; alt: string; caption: string; width: number; height: number };
